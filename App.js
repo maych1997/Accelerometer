@@ -3,18 +3,20 @@ import { View, Alert, Dimensions } from 'react-native';
 import { GameEngine } from 'react-native-game-engine';
 import RNRestart from 'react-native-restart';
 
-import {
-  accelerometer,
-  setUpdateIntervalForType,
-  SensorTypes
-} from "react-native-sensors";
+// import {
+//   accelerometer,
+//   setUpdateIntervalForType,
+//   SensorTypes
+// } from "react-native-sensors";
 
-import Matter from 'matter-js';
+import {Accelerometer} from 'expo-sensors';
+
 import Circle from './src/components/Circle';
 import Rectangle from './src/components/Rectangle';
 
 import CreateMaze from './src/helpers/CreateMaze';
 import GetRandomPoint from './src/helpers/GetRandomPoint';
+import Matter from 'matter-js';
 
 
 const { height, width } = Dimensions.get('window');
@@ -42,8 +44,8 @@ const goal = Matter.Bodies.rectangle(goalPoint.x, goalPoint.y, GOAL_SIZE, GOAL_S
   label: 'goal'
 });
 
-setUpdateIntervalForType(SensorTypes.accelerometer, 100);
-
+// setUpdateIntervalForType(SensorTypes.accelerometer, 100);
+Accelerometer.setUpdateInterval(100);
 export default class App extends Component {
   
   
@@ -96,7 +98,7 @@ export default class App extends Component {
 
     this._setupCollisionHandler(engine);
 
-    accelerometer.subscribe(({ x, y }) => {
+    Accelerometer.addListener(({ x, y }) => {
      
       Matter.Body.setPosition(theBall, {
         x: this.state.ballX + x,
@@ -107,7 +109,7 @@ export default class App extends Component {
         ballX: x + this.state.ballX,
         ballY: y + this.state.ballY,
       });
-    });
+    },[]);
   }
 
 

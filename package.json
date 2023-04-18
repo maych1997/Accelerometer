@@ -1,27 +1,27 @@
 {
-  "name": "RNAccelerometerMaze",
-  "version": "0.0.1",
-  "private": true,
+  "name": "vincitore",
+  "version": "1.0.0",
+  "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
   },
   "dependencies": {
-    "matter-js": "0.14.2",
-    "react": "16.8.3",
-    "react-native": "0.59.5",
-    "react-native-game-engine": "0.10.1",
-    "react-native-restart": "0.0.10",
-    "react-native-sensors": "5.1.8"
+    "expo": "~48.0.11",
+    "expo-status-bar": "~1.4.4",
+    "matter-js": "^0.19.0",
+    "react": "18.2.0",
+    "react-native": "0.71.6",
+    "react-native-game-engine": "^1.2.0",
+    "react-native-restart": "^0.0.27",
+    "react-native-sensors": "^7.3.6",
+    "expo-sensors": "~12.1.1",
+    "react-native-safe-area-context": "4.5.0"
   },
   "devDependencies": {
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "24.1.0",
-    "jest": "24.1.0",
-    "metro-react-native-babel-preset": "0.51.1",
-    "react-test-renderer": "16.6.3"
+    "@babel/core": "^7.20.0"
   },
-  "jest": {
-    "preset": "react-native"
-  }
+  "private": true
 }
